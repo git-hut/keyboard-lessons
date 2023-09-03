@@ -1,0 +1,74 @@
+body * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.keyboard-base {
+  top: 50%;
+  left: 50%;
+  padding: 20px;
+  max-width: 1085px;
+  position: absolute;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  background-color: rgb(197, 197, 197);
+  grid-template-columns: repeat(30, 30px);
+  grid-template-rows: repeat(5, 60px);
+  grid-gap: 5px;
+  display: grid;
+}
+
+.key {
+  font-size: 20px;
+  padding-top: 17px;
+  text-align: center;
+  border-radius: 5px;
+  border: 2px solid black;
+  background-color: rgb(243, 243, 243);
+  grid-column: span 2;
+}
+
+.key:hover {
+  cursor: pointer;
+  border-radius: 7px;
+  border: 3px solid black;
+  background-color: lightgray;
+}
+
+.delete {
+  grid-column: span 4;
+}
+
+.tab {
+  grid-column: span 3;
+}
+
+.backslash {
+  grid-column: span 3;
+}
+
+.capslock {
+  grid-column: span 4;
+}
+
+.return {
+  grid-column: span 4;
+}
+
+.shift {
+  grid-column: span 5;
+}
+
+.left-ctrl {
+  grid-column: span 3;
+}
+
+.command {
+  grid-column: span 3;
+}
+
+.space {
+  grid-column: span 13;
+}
