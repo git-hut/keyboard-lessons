@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" href="keyboard.css">
 
+    <script src="../libs/confetti.browser.min.js"></script>
     <script src="../libs/jquery.min.js"></script>
     <script src="keyboard.js"></script>
     <script src="keys.js"></script>
@@ -13,6 +14,8 @@
   </head>
 
   <body>
+
+    <canvas id="canvas"></canvas>
 
     <h1 id="title">Keyboard Lesson</h1>
 
@@ -41,7 +44,7 @@
 
       <div id="tab" class="key tab">Tab</div>
       <div id="q" class="key">Q</div>
-      <div id="w" class="key">w</div>
+      <div id="w" class="key">W</div>
       <div id="e" class="key">E</div>
       <div id="r" class="key">R</div>
       <div id="t" class="key">T</div>
@@ -81,7 +84,7 @@
       <div id="/" class="key">/</div>
       <div id="right-shift" class="key shift right-shift">Shift</div>
 
-      <div id="left-ctrl" class="key ctrl left-ctrl">Ctrl</div>
+      <div id="control" class="key control">Ctrl</div>
       <div id="left-alt" class="key alt left-alt">Alt</div>
       <div id="left-meta" class="key meta left-meta">Cmd</div>
       <div id="space" class="key space">Space</div>
