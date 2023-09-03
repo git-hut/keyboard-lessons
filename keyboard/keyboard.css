@@ -48,7 +48,7 @@ body * {
 
 #keyboard {
 
-  top: 50%;
+  top: 35%;
   left: 50%;
   display: none;
   padding: 20px;
@@ -60,6 +60,18 @@ body * {
   grid-template-columns: repeat(30, 30px);
   grid-template-rows: repeat(5, 60px);
   grid-gap: 5px;
+
+}
+
+#question {
+
+  top: 75%;
+  left: 50%;
+  width: 100%;
+  font-size: 32px;
+  position: absolute;
+  text-align: center;
+  transform: translate(-50%, -50%);
 
 }
 
@@ -84,7 +96,7 @@ body * {
 
 }
 
-.delete {
+.backspace {
 
   grid-column: span 4;
 
@@ -108,7 +120,7 @@ body * {
 
 }
 
-.return {
+.enter {
 
   grid-column: span 4;
 
