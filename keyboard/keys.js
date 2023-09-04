@@ -21,3 +21,21 @@ const numberKeys = (function() {
   })
 
 })()
+
+const specialKeys = [
+
+  {code: "backspace", name: "Backspace", display: "⌫"},
+  {code: "tab", name: "Tab", display: "⇥"},
+  {code: "capslock", name: "Caps Lock", display: "⇪"},
+  {code: "enter", name: "Enter", display: "↲"},
+  {code: "shift", name: "Shift", display: "⇧"},
+  {code: "control", name: "Control", display: "⌃"},
+  {code: "alt", name: "Option", display: "⌥"},
+  {code: "meta", name: "Command", display: "⌘"},
+  {code: "space", name: "Space", display: "Space"},
+  {code: "arrowleft", name: "Left Arrow", display: "←"},
+  {code: "arrowright", name: "Right Arrow", display: "→"},
+  {code: "arrowup", name: "Up Arrow", display: "↑"},
+  {code: "arrowdown", name: "Down Arrow", display: "↓"}
+
+]

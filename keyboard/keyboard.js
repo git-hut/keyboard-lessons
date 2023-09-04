@@ -24,8 +24,8 @@ $(function() {
 
     questions = []
     questionIndex = 0
-    questionCount = 10
-    questionSet = [].concat(alphabetKeys, numberKeys)
+    questionCount = 13
+    questionSet = [].concat(specialKeys)
 
     $("#question p").text("")
     $("#start").css("display", "none")

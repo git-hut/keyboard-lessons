@@ -105,9 +105,8 @@ canvas {
 
     .key {
 
-      width: 75;
       height: 75;
-
+      padding: 25px;
       font-size: 18px;
 
     }
@@ -129,7 +128,7 @@ canvas {
 
   grid-column: span 2;
 
-  font-size: 20px;
+  font-size: 16;
 
 }
 
