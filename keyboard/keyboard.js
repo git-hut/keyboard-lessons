@@ -25,7 +25,7 @@ $(function() {
     questions = []
     questionIndex = 0
     questionCount = 10
-    questionSet = alphabetKeys
+    questionSet = [].concat(alphabetKeys, numberKeys)
 
     $("#question p").text("")
     $("#start").css("display", "none")
@@ -128,7 +128,9 @@ $(function() {
       $(document.getElementById(key)).addClass("success")
       $(document.getElementsByClassName(key)).addClass("success")
 
-      await speak("Yes! You got it!")
+      congratulatoryWords = ["Awesome", "Nice", "Yeah", "Yes", "Wahoo", "Wow"]
+
+      await speak("" + congratulatoryWords.random() + "! You got it!")
 
       questionIndex += 1
 

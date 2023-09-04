@@ -173,7 +173,7 @@ canvas {
   display: flex;
   align-items: center;
   justify-content: center;
-  grid-column: span 4;
+  grid-column: span 5;
 
   .arrow-cell {
 
@@ -193,7 +193,7 @@ canvas {
     .left-arrow,
     .right-arrow {
 
-      height: 55%;
+      height: 100%;
 
     }
 
