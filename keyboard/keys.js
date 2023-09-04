@@ -4,7 +4,7 @@ const alphabetKeys = (function() {
 
   return letters.map(letter => {
 
-    return { code: letter.toLowerCase(), name: letter.toUpperCase() }
+    return { code: letter.toLowerCase(), name: letter.toUpperCase(), display: letter.toUpperCase() }
 
   })
 
@@ -16,7 +16,7 @@ const numberKeys = (function() {
 
   return numberNames.map((value, index) => {
 
-    return { code: String(index), name: value }
+    return { code: String(index), name: value, display: String(index) }
 
   })
 

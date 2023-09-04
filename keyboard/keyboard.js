@@ -61,6 +61,7 @@ $(function() {
 
     let keyCode = key.code
     let keyName = key.name
+    let keyDisplay = key.display
 
     if (Math.floor(questionCount / 2) == questionIndex ) {
 
@@ -92,6 +93,8 @@ $(function() {
 
     }
 
+    $("#example .key h1").text(keyDisplay)
+    $("#example").css("display", "block")
     $("#question p").text(question)
 
     await speak(question)
@@ -121,6 +124,7 @@ $(function() {
 
     if (key == questionSet[questions[questionIndex]].code) {
 
+      $("#example").css("display", "none")
       $("#question p").text("")
 
       celebrate(celebrateOptions)

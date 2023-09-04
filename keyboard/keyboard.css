@@ -2,9 +2,11 @@ body * {
 
   margin: 0;
   padding: 0;
+
   text-align: center;
-  box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
+
+  box-sizing: border-box;
 
 }
 
@@ -12,11 +14,14 @@ canvas {
 
   top: 0px;
   left: 0px;
+
   width: 100%;
   height: 100%;
-  position: fixed;
-  pointer-events: none;
+
   z-index: 1;
+  position: fixed;
+
+  pointer-events: none;
 
 }
 
@@ -31,15 +36,20 @@ canvas {
 
   top: 40%;
   left: 50%;
+
   width: 200px;
   padding: 25px;
+
+  color: white;
+  background-color: green;
+
   border-radius: 10px;
   border: 2px solid black;
-  background-color: green;
+
   transform: translate(-50%, -50%);
   position: absolute;
+
   cursor: pointer;
-  color: white;
 
 }
 
@@ -54,13 +64,17 @@ canvas {
 
   top: 45%;
   left: 50%;
-  display: none;
+
   padding: 20px;
   max-width: 1085px;
-  position: absolute;
   border-radius: 10px;
+
+  display: none;
+  position: absolute;
   transform: translate(-50%, -50%);
+
   background-color: rgb(197, 197, 197);
+
   grid-template-columns: repeat(30, 30px);
   grid-template-rows: repeat(5, 60px);
   grid-gap: 5px;
@@ -71,11 +85,34 @@ canvas {
 
   top: 80%;
   left: 50%;
+
   width: 100%;
+
   font-size: 32px;
-  position: absolute;
   text-align: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
   transform: translate(-50%, -50%);
+
+  #example {
+
+    margin: 25px;
+    display: none;
+
+    .key {
+
+      width: 75;
+      height: 75;
+
+      font-size: 18px;
+
+    }
+
+  }
 
 }
 
@@ -84,18 +121,24 @@ canvas {
   display: flex;
   align-items: center;
   justify-content: center;
+
   border-radius: 5px;
   border: 2px solid black;
+
   background-color: rgb(243, 243, 243);
+
   grid-column: span 2;
+
   font-size: 20px;
 
 }
 
 .key:hover {
 
-  cursor: pointer;
   background-color: lightgray;
+  color: black;
+
+  cursor: pointer;
 
 }
 
@@ -170,15 +213,18 @@ canvas {
 #arrows {
 
   width: 100%;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   grid-column: span 5;
 
   .arrow-cell {
 
     width: 33%;
     margin: 2px;
+
     display: inline-block;
 
     .arrow {
@@ -186,6 +232,7 @@ canvas {
       display: flex;
       align-items: center;
       justify-content: center;
+
       font-size: 14px;
 
     }
