@@ -121,6 +121,7 @@ $(function() {
     }
 
     if (key == " ") key = "space"
+    if (key.includes("-")) key = key.split("-")[1]
 
     if (key == questionSet[questions[questionIndex]].code) {
 
