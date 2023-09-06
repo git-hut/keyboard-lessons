@@ -29,6 +29,8 @@ $(function() {
 
     $("#question p").text("")
     $("#start").css("display", "none")
+    $("title").text("Keyboard Lesson")
+    $("#title").text("Keyboard Lesson")
     $("#keyboard").css("display", "inline-grid")
 
     while (questions.length < questionCount) {
