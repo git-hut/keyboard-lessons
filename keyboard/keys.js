@@ -32,7 +32,7 @@ const specialKeys = [
   { set: "special", code: "control", name: "Control", display: "⌃" },
   { set: "special", code: "alt", name: "Option", display: "⌥" },
   { set: "special", code: "meta", name: "Command", display: "⌘" },
-  { set: "special", code: "space", name: "Space", display: "Space" },
+  { set: "special", code: "space", name: "Space", display: "                              " },
   { set: "special", code: "arrowleft", name: "Left Arrow", display: "←" },
   { set: "special", code: "arrowright", name: "Right Arrow", display: "→" },
   { set: "special", code: "arrowup", name: "Up Arrow", display: "↑" },
@@ -42,7 +42,7 @@ const specialKeys = [
 
 const symbolKeys = [
 
-  { set: "symbol", code: "~", name: "Tilde", display: "~" },
+  { set: "symbol", code: "`", name: "Backtick", display: "`" },
   { set: "symbol", code: "-", name: "Minus", display: "-" },
   { set: "symbol", code: "+", name: "Plus", display: "+" },
   { set: "symbol", code: "[", name: "Open Square Bracket", display: "[" },

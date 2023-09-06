@@ -111,6 +111,8 @@ canvas {
       padding: 20px;
       font-size: 15px;
 
+      white-space: pre;
+
     }
 
   }
@@ -193,12 +195,6 @@ canvas {
 
 }
 
-.left-ctrl {
-
-  grid-column: span 3;
-
-}
-
 .meta {
 
   grid-column: span 3;
@@ -207,7 +203,7 @@ canvas {
 
 .space {
 
-  grid-column: span 13;
+  grid-column: span 10;
 
 }
 
@@ -219,7 +215,7 @@ canvas {
   align-items: center;
   justify-content: center;
 
-  grid-column: span 5;
+  grid-column: span 6;
 
   .arrow-cell {
 
@@ -235,7 +231,18 @@ canvas {
       justify-content: center;
 
       font-size: 14px;
-      padding: 4px;
+
+    }
+
+    .left-arrow, .right-arrow {
+
+      height: 60px;
+
+    }
+
+    .up-arrow, .down-arrow {
+
+      height: 27.5px;
 
     }
 
