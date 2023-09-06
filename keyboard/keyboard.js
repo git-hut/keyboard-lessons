@@ -24,8 +24,8 @@ $(function() {
 
     questions = []
     questionIndex = 0
-    questionCount = 13
-    questionSet = [].concat(specialKeys)
+    questionCount = 25
+    questionSet = [].concat(numberKeys, alphabetKeys, specialKeys, symbolKeys)
 
     $("#question p").text("")
     $("#start").css("display", "none")
@@ -55,13 +55,14 @@ $(function() {
 
   }
 
-  const askQuestion = async function(key = questionSet[questions[questionIndex]]) {
+  const askQuestion = async function(questionKey = questionSet[questions[questionIndex]]) {
 
     let question = ""
 
-    let keyCode = key.code
-    let keyName = key.name
-    let keyDisplay = key.display
+    let keySet = questionKey.set
+    let keyCode = questionKey.code
+    let keyName = questionKey.name
+    let keyDisplay = questionKey.display
 
     if (Math.floor(questionCount / 2) == questionIndex ) {
 
@@ -103,7 +104,7 @@ $(function() {
 
   }
 
-  const processEvent = async function(event) {
+  const processEvent = async function(event, questionKey = questionSet[questions[questionIndex]]) {
 
     removeKeyboardEvents()
 
@@ -121,42 +122,50 @@ $(function() {
     }
 
     if (key == " ") key = "space"
-    if (key.includes("-")) key = key.split("-")[1]
+    if (key.includes("-") && key.length > 1) key = key.split("-")[1]
 
-    if (key == questionSet[questions[questionIndex]].code) {
+    if (!(questionKey.set == "symbol" && key == "shift")) {
 
-      $("#example").css("display", "none")
-      $("#question p").text("")
+      if (key == questionSet[questions[questionIndex]].code) {
 
-      celebrate(celebrateOptions)
+        $("#example").css("display", "none")
+        $("#question p").text("")
 
-      $(document.getElementById(key)).addClass("success")
-      $(document.getElementsByClassName(key)).addClass("success")
+        celebrate(celebrateOptions)
 
-      congratulatoryWords = ["Awesome", "Nice", "Yeah", "Yes", "Wahoo", "Wow"]
+        $(document.getElementById(key)).addClass("success")
+        $(document.getElementsByClassName(key)).addClass("success")
 
-      await speak("" + congratulatoryWords.random() + "! You got it!")
+        congratulatoryWords = ["Awesome", "Nice", "Yeah", "Yes", "Wahoo", "Wow"]
 
-      questionIndex += 1
+        await speak("" + congratulatoryWords.random() + "! You got it!")
 
-      await sleep(500)
+        questionIndex += 1
 
-      if (questionIndex != questionCount) {
+        await sleep(500)
 
-        askQuestion()
+        if (questionIndex != questionCount) {
+
+          askQuestion()
+
+        } else {
+
+          end()
+
+        }
 
       } else {
 
-        end()
+        $(document.getElementById(key)).addClass("fail")
+        $(document.getElementsByClassName(key)).addClass("fail")
+
+        await speak("Sorry, that's not quite right, try again!")
+
+        addKeyboardEvents()
 
       }
 
     } else {
-
-      $(document.getElementById(key)).addClass("fail")
-      $(document.getElementsByClassName(key)).addClass("fail")
-
-      await speak("Sorry, that's not quite right, try again!")
 
       addKeyboardEvents()
 
