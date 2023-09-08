@@ -77,6 +77,12 @@ class Utterance {
 
       this.utterance.voice = voice
 
+      return true
+
+    } else {
+
+      return false
+
     }
 
   }

@@ -1,5 +1,3 @@
-const utterance = new Utterance()
-
 $(function() {
 
   var restart
