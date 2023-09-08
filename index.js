@@ -1,3 +1,5 @@
+const utterance = new Utterance()
+
 $(function() {
 
   var restart
@@ -43,15 +45,15 @@ $(function() {
 
     if (!restart) {
 
-      await speak("Hello " + name + " and welcome to your Keyboard Lesson!")
+      await utterance.speak("Hello " + name + " and welcome to your Keyboard Lesson!")
 
     } else {
 
-      await speak("Welcome back " + name + "!")
+      await utterance.speak("Welcome back " + name + "!")
 
     }
 
-    await sleep(500)
+    await utterance.wait(500)
 
     askQuestion()
 
@@ -68,9 +70,9 @@ $(function() {
 
     if (Math.floor(questionCount / 2) == questionIndex ) {
 
-      await speak("You're doing great, keep it up!")
+      await utterance.speak("You're doing great, keep it up!")
 
-      await sleep(500)
+      await utterance.wait(500)
 
     }
 
@@ -100,7 +102,7 @@ $(function() {
     $("#example").css("display", "block")
     $("#question p").text(question)
 
-    await speak(question)
+    await utterance.speak(question)
 
     addKeyboardEvents()
 
@@ -140,11 +142,11 @@ $(function() {
 
         congratulatoryWords = ["Awesome", "Nice", "Yeah", "Yes", "Wahoo", "Wow"]
 
-        await speak("" + congratulatoryWords.random() + "! You got it!")
+        await utterance.speak("" + congratulatoryWords.random() + "! You got it!")
 
         questionIndex += 1
 
-        await sleep(500)
+        await utterance.wait(500)
 
         if (questionIndex != questionCount) {
 
@@ -161,7 +163,7 @@ $(function() {
         $(document.getElementById(key)).addClass("fail")
         $(document.getElementsByClassName(key)).addClass("fail")
 
-        await speak("Sorry, that's not quite right, try again!")
+        await utterance.speak("Sorry, that's not quite right, try again!")
 
         addKeyboardEvents()
 
@@ -207,11 +209,17 @@ $(function() {
     $("#start h3").text("Restart")
     $("#question p").text(message)
 
-    await speak(message)
+    await utterance.speak(message)
 
     restart = true
 
   }
+
+  $(window).on("beforeunload", function() {
+
+    utterance.interrupt()
+
+  })
 
   $("#start").click(function() {
 
@@ -220,25 +228,3 @@ $(function() {
   })
 
 })
-
-const speak = function(text = "") {
-
-  let voice = window.speechSynthesis.getVoices()[0]
-  let utterance = new SpeechSynthesisUtterance()
-
-  utterance.voice = voice
-  utterance.text = text
-
-  window.speechSynthesis.speak(utterance)
-
-  return new Promise(resolve => {
-    return utterance.onend = resolve
-  })
-
-}
-
-const sleep = function(time) {
-  return new Promise(resolve => {
-    return window.setTimeout(resolve, time)
-  })
-}

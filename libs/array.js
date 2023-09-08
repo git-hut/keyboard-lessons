@@ -66,6 +66,12 @@ Array.prototype.absMax = function(numeric = true) {
   }
 };
 
+// Credit: https://stackoverflow.com/a/10757602/1544937
+// Credit: https://stackoverflow.com/a/20070691/1544937
+Array.prototype.unique = function() {
+  return Array.from(new Set(this));
+};
+
 // Credit: https://stackoverflow.com/a/53606357/1544937
 Array.prototype.subset = function(array) {
   return this.every(function(item) {

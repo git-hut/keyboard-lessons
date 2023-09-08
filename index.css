@@ -1,4 +1,4 @@
-body * {
+* {
 
   margin: 0px;
   padding: 0px;
@@ -10,7 +10,7 @@ body * {
 
 }
 
-canvas {
+#canvas {
 
   top: 0px;
   left: 0px;
@@ -22,6 +22,22 @@ canvas {
   position: fixed;
 
   pointer-events: none;
+
+}
+
+#forkme {
+
+  top: 0px;
+  right: 0px;
+
+  width: 150px;
+  height: 150px;
+
+  position: fixed;
+
+  z-index: calc(9e999);
+
+  clip-path: polygon(15px 0px, 60px 0px, 150px 90px, 150px 135px);
 
 }
 
