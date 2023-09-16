@@ -2,9 +2,10 @@ const utterance = new Utterance()
 
 voices = [
 
-  {name: "Alex", volume: 1, pitch: 1, rate: 0.9},
+  {name: "Alex", volume: 1, pitch: 1, rate: 0.85},
   {name: "Rishi", volume: 1, pitch: 1, rate: 1},
-  {name: "Samantha", volume: 1, pitch: 1, rate: 0.95}
+  {name: "Samantha", volume: 1, pitch: 1, rate: 0.95},
+  {name: "", volume: 1, pitch: 1, rate: 1}
 
 ]
 

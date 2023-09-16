@@ -27,6 +27,8 @@ $(function() {
     questionCount = 25
     questionSet = [].concat(numberKeys, alphabetKeys, specialKeys, symbolKeys)
 
+    utterance.interrupt()
+
     $("#question p").text("")
     $("#start").css("display", "none")
     $("title").text("Keyboard Lesson")
@@ -96,13 +98,13 @@ $(function() {
 
     }
 
-    $("#example .key h1").text(keyDisplay)
-    $("#example").css("display", "block")
+    addKeyboardEvents()
+
     $("#question p").text(question)
+    $("#example").css("display", "block")
+    $("#example .key h1").text(keyDisplay)
 
     await utterance.speak(question)
-
-    addKeyboardEvents()
 
   }
 
@@ -112,6 +114,9 @@ $(function() {
 
     event.preventDefault()
     event.stopPropagation()
+
+    $(".key").removeClass("fail")
+    $(".key").removeClass("success")
 
     if (event.type == "keydown") {
 
@@ -146,6 +151,8 @@ $(function() {
 
         await utterance.wait(500)
 
+        $(".key").removeClass("success")
+
         if (questionIndex != questionCount) {
 
           askQuestion()
@@ -158,12 +165,14 @@ $(function() {
 
       } else {
 
+        addKeyboardEvents()
+
         $(document.getElementById(key)).addClass("fail")
         $(document.getElementsByClassName(key)).addClass("fail")
 
         await utterance.speak("Sorry, that's not quite right, try again!")
 
-        addKeyboardEvents()
+        $(".key").removeClass("fail")
 
       }
 
@@ -173,18 +182,17 @@ $(function() {
 
     }
 
-    $(".key").removeClass("success")
-    $(".key").removeClass("fail")
-
   }
 
   const addKeyboardEvents = function() {
 
     $(".key").click(function(event) {
+      utterance.interrupt()
       processEvent(event)
     })
 
     $("body").keydown(function(event) {
+      utterance.interrupt()
       processEvent(event)
     })
 
@@ -207,7 +215,7 @@ $(function() {
     $("#start h3").text("Restart")
     $("#question p").text(message)
 
-    await utterance.speak(message)
+    utterance.speak(message)
 
     restart = true
 
