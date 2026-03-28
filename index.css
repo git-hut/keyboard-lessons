@@ -50,14 +50,13 @@
 
 #start {
 
-  top: 40%;
+  top: 50%;
   left: 50%;
 
-  width: 200px;
+  width: 300px;
   padding: 25px;
 
-  color: white;
-  background-color: green;
+  background-color: white;
 
   border-radius: 10px;
   border: 2px solid black;
@@ -65,11 +64,78 @@
   transform: translate(-50%, -50%);
   position: absolute;
 
+}
+
+#config {
+
+  margin-bottom: 20px;
+
+  .config-row {
+
+    margin-bottom: 15px;
+
+    label {
+
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      text-align: left;
+
+    }
+
+    input[type="text"] {
+
+      width: 100%;
+      padding: 8px;
+      font-size: 14px;
+      border-radius: 5px;
+      border: 1px solid #999;
+      box-sizing: border-box;
+
+    }
+
+    .config-checkboxes {
+
+      label {
+
+        font-weight: normal;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 4px;
+
+        input[type="checkbox"] {
+
+          width: 16px;
+          height: 16px;
+          cursor: pointer;
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+#start-button {
+
+  width: 100%;
+  padding: 12px;
+
+  color: white;
+  background-color: green;
+
+  border-radius: 10px;
+  border: 2px solid black;
+
   cursor: pointer;
 
 }
 
-#start:hover {
+#start-button:hover {
 
   color: black;
   background-color: lightgreen;
