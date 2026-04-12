@@ -39,7 +39,30 @@
 
     <div id="start">
 
-      <h3>Start</h3>
+      <div id="config">
+
+        <div class="config-row">
+          <label for="name-input">Name</label>
+          <input type="text" id="name-input" placeholder="Enter your name" maxlength="30" autocomplete="off">
+        </div>
+
+        <div class="config-row">
+          <label>Key Sets</label>
+          <div class="config-checkboxes">
+            <label><input type="checkbox" id="numberKeys" checked> Numbers</label>
+            <label><input type="checkbox" id="alphabetKeys" checked> Alphabet</label>
+            <label><input type="checkbox" id="specialKeys" checked> Special Keys</label>
+            <label><input type="checkbox" id="symbolKeys" checked> Symbols</label>
+          </div>
+        </div>
+
+      </div>
+
+      <button type="button" id="start-button">
+
+        <h3>Start</h3>
+
+      </button>
 
     </div>
 

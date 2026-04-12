@@ -6,7 +6,7 @@ $(function() {
   var questionIndex
   var questionCount
 
-  let name = "Micky"
+  let name = ""
 
   const canvas = document.getElementById("canvas")
 
@@ -20,12 +20,51 @@ $(function() {
     spread: 360
   }
 
+  const keySetIds = ["numberKeys", "alphabetKeys", "specialKeys", "symbolKeys"]
+
+  const keySets = { numberKeys, alphabetKeys, specialKeys, symbolKeys }
+
+  const loadSettings = function() {
+
+    const savedName = localRead("name")
+    if (savedName !== null) $("#name-input").val(savedName)
+
+    keySetIds.forEach(function(id) {
+      const saved = localRead(id)
+      if (saved !== null) $("#" + id).prop("checked", saved)
+    })
+
+  }
+
+  const saveSettings = function() {
+
+    localWrite("name", $("#name-input").val().trim())
+    keySetIds.forEach(function(id) {
+      localWrite(id, $("#" + id).is(":checked"))
+    })
+
+  }
+
   const start = async function() {
+
+    name = $("#name-input").val().trim()
+
+    const selectedSets = []
+    keySetIds.forEach(function(id) {
+      if ($("#" + id).is(":checked")) selectedSets.push(...keySets[id])
+    })
+
+    if (selectedSets.length === 0) {
+      $("#question p").text("Please select at least one key set to start!")
+      return
+    }
+
+    saveSettings()
 
     questions = []
     questionIndex = 0
-    questionCount = 25
-    questionSet = [].concat(numberKeys, alphabetKeys, specialKeys, symbolKeys)
+    questionCount = selectedSets.length
+    questionSet = selectedSets
 
     utterance.interrupt()
 
@@ -43,13 +82,19 @@ $(function() {
 
     }
 
+    const greeting = name
+      ? "Hello " + name + " and welcome to your Keyboard Lesson!"
+      : "Hello and welcome to your Keyboard Lesson!"
+
+    const welcomeBack = name ? "Welcome back " + name + "!" : "Welcome back!"
+
     if (!restart) {
 
-      await utterance.speak("Hello " + name + " and welcome to your Keyboard Lesson!")
+      await utterance.speak(greeting)
 
     } else {
 
-      await utterance.speak("Welcome back " + name + "!")
+      await utterance.speak(welcomeBack)
 
     }
 
@@ -212,7 +257,7 @@ $(function() {
     $("#keyboard").css("display", "none")
     $("#start").css("display", "block")
 
-    $("#start h3").text("Restart")
+    $("#start-button h3").text("Restart")
     $("#question p").text(message)
 
     utterance.speak(message)
@@ -227,7 +272,9 @@ $(function() {
 
   })
 
-  $("#start").click(function() {
+  loadSettings()
+
+  $("#start-button").click(function() {
 
     start()
 
