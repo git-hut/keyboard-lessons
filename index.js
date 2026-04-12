@@ -63,7 +63,7 @@ $(function() {
 
     questions = []
     questionIndex = 0
-    questionCount = Math.min(25, selectedSets.length)
+    questionCount = selectedSets.length
     questionSet = selectedSets
 
     utterance.interrupt()
